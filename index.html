@@ -70,6 +70,9 @@
             object-fit: cover; /* 動画が枠に収まるように調整 */
             object-position: top; /* 上部を優先して表示 */
         }
+        #audioPlayback, #ttsPlayback {
+            display: none;
+        }
     </style>   
 </head>
 <body>
@@ -78,7 +81,7 @@
         東北ずん子に質問！
     </h1>
     <p>
-    <button id="recordButton" style="width: 200px; height: 40px; font-size: 20px;">Talk start</button>
+    <button id="recordButton" style="width: 150px; height: 40px; font-size: 20px;">Talk start</button>
     <button id="moveButton" style="width: 70px; height: 40px; font-size: 20px;">Move</button> <!-- Moveボタンを追加 -->
     <button id="waitButton" style="width: 70px; height: 40px; font-size: 20px;">Wait</button> <!-- Waitボタンを追加 -->
     <button id="firstButton" style="width: 70px; height: 40px; font-size: 20px;">First</button> <!-- Waitボタンを追加 -->
@@ -86,7 +89,7 @@
     </p>
     <!-- テキスト入力欄とGOボタン -->
     <p>
-        <input id="textInput" type="text" placeholder="質問を入力してください" style="width: 300px; height: 40px; font-size: 18px;">
+        <input id="textInput" type="text" placeholder="質問を入力してください" style="width: 200px; height: 40px; font-size: 18px;">
         <button id="textSubmitButton" style="width: 70px; height: 40px; font-size: 20px;">Go</button>
     </p>
     <p>
