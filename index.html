@@ -78,7 +78,7 @@
         }
 
         h1 {
-            font-size: 22px;
+            font-size: 26px;
         }
 
         table {
@@ -94,6 +94,15 @@
         button {
             width: 100%;  /* ボタンもスマホで全幅に */
             font-size: 18px;
+        }
+
+        /* 動画エリアを画面の横幅に合わせる */
+        .anime-video-container {
+            width: 100%;  /* 画面に合わせて横幅を100%に */
+            height: auto; /* 高さも自動調整 */
+            overflow: hidden; /* 下部を表示しない */
+            background-color: white;
+            margin-bottom: 10px; /* テーブルとの間に少し余白 */
         }
 
         .anime-video {
