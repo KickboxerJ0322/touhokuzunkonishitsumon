@@ -70,45 +70,6 @@
             object-fit: cover; /* 動画が枠に収まるように調整 */
             object-position: top; /* 上部を優先して表示 */
         }
-    
-        /* スマホやタブレット向けの調整 */
-        @media screen and (max-width: 768px) {
-            body {
-                font-size: 12px; /* 全体を縮小 */
-                transform: scale(0.8); /* スマホの画面幅に合わせて縮小 */
-                transform-origin: top left;
-            }
-    
-            h1 {
-                font-size: 20px; /* タイトルも縮小 */
-            }
-    
-            table {
-                width: 100%;  /* 横幅を画面に合わせる */
-                font-size: 14px; /* テーブルのフォントも縮小 */
-            }
-    
-            button {
-                width: 80%;  /* ボタンも縮小して画面幅に合わせる */
-                font-size: 14px;
-            }
-    
-            input[type="text"] {
-                width: 80%;  /* 入力フィールドも縮小 */
-                font-size: 14px;
-            }
-    
-            .anime-video-container {
-                width: 100%;  /* 画面幅に合わせる */
-                height: auto; /* 高さは自動で調整 */
-                overflow: hidden; /* 下部を隠す */
-            }
-    
-            .anime-video {
-                width: 100%;  /* 動画の横幅も画面に合わせる */
-                height: auto;  /* 高さは自動で調整 */
-            }
-        }
     </style>   
 </head>
 <body>
