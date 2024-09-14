@@ -87,24 +87,24 @@
         }
 
         input[type="text"] {
-            width: 70%;
+            width: 60%;  /* スマホでは横幅60%に */
             font-size: 16px;
         }
-
+    
         button {
-            width: 60%;  /* ボタンもスマホで全幅に */
-            font-size: 18px;
+            width: 60%;  /* ボタンもスマホで横幅60%に */
+            font-size: 12px;
         }
-
-        /* 動画エリアを画面の横幅に合わせる */
+    
+        /* 動画エリアを画面の横幅に合わせ、下部25%を表示しない */
         .anime-video-container {
             width: 100%;  /* 画面に合わせて横幅を100%に */
-            height: 100%; /* 高さも自動調整 */
-            overflow: hidden; /* 下部を表示しない */
+            height: 75%;  /* 下部25%を表示しないように高さを75%に */
+            overflow: hidden; /* 下部を隠す */
             background-color: white;
             margin-bottom: 10px; /* テーブルとの間に少し余白 */
         }
-
+    
         .anime-video {
             width: 100%;
             height: auto;  /* スマホ画面での動画サイズ調整 */
