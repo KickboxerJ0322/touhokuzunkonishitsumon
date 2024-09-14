@@ -6,111 +6,110 @@
     <!-- Google Fontsの追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-    /* ベーススタイル */
-    body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        box-sizing: border-box;
-        font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro', 'Meiryo', 'sans-serif';
-        font-size: 18px;
-        text-align: left;  /* 全体を左寄せ */
-    }
-
-    /* タイトルスタイル */
-    h1 {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;  /* 左寄せ */
-        font-weight: bold;
-        color: #4CAF50;
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 40px;
-    }
-
-    h1 img {
-        width: 60px;
-        height: auto;
-        margin-right: 10px;
-    }
-
-    /* ボタンスタイル */
-    button {
-        width: 600px;  /* ボタンの横幅 */
-        margin-right: 3px;  /* ボタン間の余白 */
-    }
-
-    /* テーブルの横幅をボタンと同じくらいに設定 */
-    table {
-        width: 600px;  /* テーブルの横幅をボタンに合わせる */
-        border-collapse: collapse;
-        margin-top: 5px;
-        font-size: 18px;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-        padding: 12px;
-        text-align: left;
-    }
-
-    /* 動画エリアをテーブルと同じくらいのサイズに調整 */
-    .anime-video-container {
-        width: 600px;  /* テーブルと同じ横幅 */
-        height: 450px; /* 高さを固定 */
-        overflow: hidden; /* 下部を表示しない */
-        background-color: white;
-        margin-bottom: 10px; /* テーブルとの間に少し余白 */
-    }
-
-    .anime-video {
-        width: 100%;
-        height: auto;
-        object-fit: cover; /* 動画が枠に収まるように調整 */
-        object-position: top; /* 上部を優先して表示 */
-    }
-
-    /* スマホやタブレット向けの調整 */
-    @media screen and (max-width: 768px) {
+        /* ベーススタイル */
         body {
-            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro', 'Meiryo', 'sans-serif';
+            font-size: 18px;
+            text-align: left;  /* 全体を左寄せ */
         }
-
+    
+        /* タイトルスタイル */
         h1 {
-            font-size: 26px;
-        }
-
-        table {
-            font-size: 16px;
-            width: 100%;  /* スマホでは横幅を100%にする */
-        }
-
-        input[type="text"] {
-            width: 60%;  /* スマホでは横幅60%に */
-            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;  /* 左寄せ */
+            font-weight: bold;
+            color: #4CAF50;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 40px;
         }
     
+        h1 img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+    
+        /* ボタンスタイル */
         button {
-            width: 60%;  /* ボタンもスマホで横幅60%に */
-            font-size: 12px;
+            width: 600px;  /* ボタンの横幅 */
+            margin-right: 3px;  /* ボタン間の余白 */
         }
     
-        /* 動画エリアを画面の横幅に合わせ、下部25%を表示しない */
+        /* テーブルの横幅をボタンと同じくらいに設定 */
+        table {
+            width: 600px;  /* テーブルの横幅をボタンに合わせる */
+            border-collapse: collapse;
+            margin-top: 5px;
+            font-size: 18px;
+        }
+    
+        table, th, td {
+            border: 1px solid black;
+            padding: 12px;
+            text-align: left;
+        }
+    
+        /* 動画エリアをテーブルと同じくらいのサイズに調整 */
         .anime-video-container {
-            width: 100%;  /* 画面に合わせて横幅を100%に */
-            height: 75%;  /* 下部25%を表示しないように高さを75%に */
-            overflow: hidden; /* 下部を隠す */
+            width: 600px;  /* テーブルと同じ横幅 */
+            height: 450px; /* 高さを固定 */
+            overflow: hidden; /* 下部を表示しない */
             background-color: white;
             margin-bottom: 10px; /* テーブルとの間に少し余白 */
         }
     
         .anime-video {
             width: 100%;
-            height: auto;  /* スマホ画面での動画サイズ調整 */
+            height: auto;
+            object-fit: cover; /* 動画が枠に収まるように調整 */
+            object-position: top; /* 上部を優先して表示 */
         }
-    }
-    </style>
+    
+        /* スマホやタブレット向けの調整 */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 12px; /* 全体を縮小 */
+                transform: scale(0.8); /* スマホの画面幅に合わせて縮小 */
+                transform-origin: top left;
+            }
+    
+            h1 {
+                font-size: 20px; /* タイトルも縮小 */
+            }
+    
+            table {
+                width: 100%;  /* 横幅を画面に合わせる */
+                font-size: 14px; /* テーブルのフォントも縮小 */
+            }
+    
+            button {
+                width: 80%;  /* ボタンも縮小して画面幅に合わせる */
+                font-size: 14px;
+            }
+    
+            input[type="text"] {
+                width: 80%;  /* 入力フィールドも縮小 */
+                font-size: 14px;
+            }
+    
+            .anime-video-container {
+                width: 100%;  /* 画面幅に合わせる */
+                height: auto; /* 高さは自動で調整 */
+                overflow: hidden; /* 下部を隠す */
+            }
+    
+            .anime-video {
+                width: 100%;  /* 動画の横幅も画面に合わせる */
+                height: auto;  /* 高さは自動で調整 */
+            }
+        }
+    </style>   
 </head>
 <body>
     <h1>
