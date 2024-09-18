@@ -81,16 +81,16 @@
         東北ずん子に質問！
     </h1>
     <p>
-    <button id="recordButton" style="width: 120px; height: 40px; font-size: 20px;">Talk start</button>
-    <button id="moveButton" style="width: 70px; height: 40px; font-size: 20px;">Move</button> <!-- Moveボタンを追加 -->
-    <button id="waitButton" style="width: 70px; height: 40px; font-size: 20px;">Wait</button> <!-- Waitボタンを追加 -->
-    <button id="firstButton" style="width: 70px; height: 40px; font-size: 20px;">First</button> <!-- Waitボタンを追加 -->
+    <button id="recordButton" style="width: 300px; height: 40px; font-size: 20px;">Talk start</button>
+    <button id="moveButton" style="width: 100px; height: 40px; font-size: 20px;">Move</button> <!-- Moveボタンを追加 -->
+    <button id="waitButton" style="width: 100px; height: 40px; font-size: 20px;">Wait</button> <!-- Waitボタンを追加 -->
+    <button id="firstButton" style="width: 100px; height: 40px; font-size: 20px;">First</button> <!-- Waitボタンを追加 -->
     <p id="recordingStatus" style="color: red; display: none;">録音中</p>
     </p>
     <!-- テキスト入力欄とGOボタン -->
     <p>
-        <input id="textInput" type="text" placeholder="質問を入力してください" style="width: 200px; height: 40px; font-size: 18px;">
-        <button id="textSubmitButton" style="width: 70px; height: 40px; font-size: 20px;">Go</button>
+        <input id="textInput" type="text" placeholder="質問を入力してください" style="width: 500px; height: 40px; font-size: 18px;">
+        <button id="textSubmitButton" style="width: 100px; height: 40px; font-size: 20px;">Go</button>
     </p>
     <p>
     <audio id="audioPlayback" controls></audio>
@@ -248,8 +248,11 @@
                     // フル回答をテーブルに追加
                     updateLastRowAI(fullResponseText, true);
 
+                    // 外部のGASからTTS APIキーを取得
+                    const ttsApiKey = await fetchTtsApiKey();
+
                     // フル回答の音声再生データを準備
-                    const url = await getTtsUrl(8, data.geminiResponse, 'g38-9769s80-a15');
+                    const url = await getTtsUrl(8, data.geminiResponse, ttsApiKey); // GASから取得したAPIキーを使用
                     fullResponseAudioUrl = url;
                 } else {
                     console.error('Error:', data.error);
@@ -365,8 +368,11 @@
                             fullResponseText = data.geminiResponse;
                             updateLastRowAI(fullResponseText, true); // フル回答をテーブルに追加
 
+                            // 外部GASからTTS APIキーを取得
+                            const ttsApiKey = await fetchTtsApiKey();
+
                             // フル回答の音声再生データを準備
-                            const url = await getTtsUrl(8, fullResponseText, 'g38-9769s80-a15');
+                            const url = await getTtsUrl(8, fullResponseText, ttsApiKey); // GASから取得したAPIキーを使用
                             fullResponseAudioUrl = url;
                             isTtsReady = true; // 音声データが準備完了
                         } else {
@@ -532,8 +538,14 @@
 
         // 声を決める関数（四国めたん	ノーマル	2、ずんだもん	ノーマル	3、春日部つむぎ	ノーマル	8、冥鳴ひまり	ノーマル	14、No.7	ノーマル	29、雨晴はう	ノーマル	10、青山龍星	ノーマル	13、九州そら	ノーマル	16、もち子さん	ノーマル	20）
         function generateSpeech(text, callback) {
-            getTtsUrl(8, text, 'g38-9769s80-a15')
+            // 外部GASからTTS APIキーを取得
+            fetchTtsApiKey()
+                .then(ttsApiKey => {
+                    // 取得したAPIキーを使ってTTS音声を生成
+                    return getTtsUrl(8, text, ttsApiKey);
+                })
                 .then(ttsUrl => {
+                    // 生成された音声のURLを使って再生
                     ttsPlayback.src = ttsUrl;
                     ttsPlayback.play();
                     ttsPlayback.onended = () => {
@@ -544,6 +556,18 @@
                     console.error("Error generating speech:", error);
                     alert("音声生成に失敗しました。");
                 });
+        }
+
+        // 外部GASからTTS APIキーを取得する関数
+        async function fetchTtsApiKey() {
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbzD1JTv9VOo8FnamkBmaZCtaBt2p4pcHBygwzVzW9hzcjrz8zCkTQiU9pXVEV12yMr_/exec');
+                const data = await response.json();
+                return data.key;  // APIキーを返す
+            } catch (error) {
+                console.error('Error fetching API key:', error);
+                throw error;
+            }
         }
 
         // TTS Quest API呼び出し用関数
