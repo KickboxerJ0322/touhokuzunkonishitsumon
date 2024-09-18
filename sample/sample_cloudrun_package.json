@@ -1,0 +1,9 @@
+{
+  "name": "my-cloud-function",
+  "version": "1.0.0",
+  "description": "A simple Cloud Function for Gemini API",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
