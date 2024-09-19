@@ -10,3 +10,7 @@
 - **sample_b_code.gs**: gasのコードbです。
 - **sample_cloudrun_index.js**: cloud runのコードです。
 - **sample_cloudrun_package.json**: cloud runのコードです。
+
+## URL
+
+- **[sample_index.html]([https://sites.google.com/view/emotionalscore/%E3%83%9B%E3%83%BC%E3%83%A0](https://kickboxerj0322.github.io/touhokuzunkonishitsumon/))**
