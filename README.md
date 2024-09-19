@@ -13,4 +13,4 @@
 
 ## URL
 
-- **[sample_index.html]([https://sites.google.com/view/emotionalscore/%E3%83%9B%E3%83%BC%E3%83%A0](https://kickboxerj0322.github.io/touhokuzunkonishitsumon/))**
+- **[sample_index.html](https://kickboxerj0322.github.io/touhokuzunkonishitsumon/)**
